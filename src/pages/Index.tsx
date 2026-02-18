@@ -3,7 +3,7 @@ import logo from "@/assets/nightfall-logo.png";
 import { ParticleField } from "@/components/ParticleField";
 import { PlayerCounter } from "@/components/PlayerCounter";
 import { IPCopyButton } from "@/components/IPCopyButton";
-import { Sword, Puzzle, Zap, Shield, Globe, Star, ChevronDown } from "lucide-react";
+import { Sword, Puzzle, Zap, Shield, Globe, Star, ChevronDown, ShoppingBag, Heart, Bot, MessageCircle, ExternalLink } from "lucide-react";
 
 const features = [
   {
@@ -45,6 +45,8 @@ const steps = [
   { step: "04", title: "Join & Play", desc: "Hit connect and enter the NightfallNetwork!" },
 ];
 
+const DISCORD_INVITE = "https://discord.gg/KVv7ta68NG";
+
 export default function Index() {
   return (
     <div className="relative min-h-screen overflow-x-hidden" style={{ background: "hsl(var(--background))" }}>
@@ -58,17 +60,24 @@ export default function Index() {
             Nightfall<span className="text-primary">Network</span>
           </span>
         </div>
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+        <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
           <a href="#features" className="hover:text-primary transition-colors">Features</a>
           <a href="#join" className="hover:text-primary transition-colors">How to Join</a>
           <a
-            href="https://discord.gg/"
+            href={DISCORD_INVITE}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-lg px-4 py-2 text-primary transition-all"
-            style={{ border: "1px solid hsl(var(--primary) / 0.4)", background: "hsl(var(--primary) / 0.08)" }}
+            className="hover:text-primary transition-colors"
           >
             Discord
+          </a>
+          <a
+            href="#store"
+            className="flex items-center gap-2 rounded-lg px-4 py-2 transition-all"
+            style={{ background: "hsl(var(--accent) / 0.15)", color: "hsl(var(--accent))", border: "1px solid hsl(var(--accent) / 0.35)" }}
+          >
+            <ShoppingBag className="h-4 w-4" />
+            Store
           </a>
         </div>
       </nav>
@@ -221,6 +230,130 @@ export default function Index() {
                   {tag}
                 </span>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DISCORD & BOTS ────────────────────── */}
+      <section className="relative z-10 px-6 py-16 lg:px-16">
+        <div className="mx-auto max-w-6xl">
+          <div
+            className="relative overflow-hidden rounded-3xl"
+            style={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))" }}
+          >
+            <div className="grid md:grid-cols-2">
+              {/* Left — Info */}
+              <div className="p-8 md:p-12 flex flex-col justify-center">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-accent">Community</p>
+                <h2 className="font-display text-3xl font-bold md:text-4xl text-foreground mb-4">
+                  Join Our Discord
+                </h2>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Stay connected with the NightfallNetwork community. Get announcements, chat with other players, report bugs, and interact with our <span className="text-accent font-medium">custom-built Discord bots</span> that help manage the server and community.
+                </p>
+                <div className="flex flex-col gap-3 mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg" style={{ background: "hsl(var(--accent) / 0.12)", color: "hsl(var(--accent))" }}>
+                      <Bot className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">Custom Discord Bots</p>
+                      <p className="text-xs text-muted-foreground">Self-made bots for moderation, tickets & server stats</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg" style={{ background: "hsl(var(--accent) / 0.12)", color: "hsl(var(--accent))" }}>
+                      <MessageCircle className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">Active Community Chat</p>
+                      <p className="text-xs text-muted-foreground">Talk with staff and players anytime</p>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href={DISCORD_INVITE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(258 60% 55%), hsl(258 55% 40%))",
+                    color: "hsl(var(--foreground))",
+                    boxShadow: "0 0 25px hsl(258 60% 50% / 0.3)",
+                  }}
+                >
+                  Join Discord
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </div>
+
+              {/* Right — Visual */}
+              <div
+                className="hidden md:flex items-center justify-center p-12"
+                style={{ background: "linear-gradient(135deg, hsl(258 60% 50% / 0.08) 0%, hsl(258 55% 35% / 0.15) 100%)" }}
+              >
+                <div className="text-center">
+                  <div className="relative inline-block mb-4">
+                    <div
+                      className="absolute inset-0 rounded-full blur-3xl"
+                      style={{ background: "hsl(var(--accent) / 0.2)", transform: "scale(2)" }}
+                    />
+                    <div
+                      className="relative flex h-24 w-24 items-center justify-center rounded-2xl"
+                      style={{ background: "hsl(var(--accent) / 0.15)", border: "1px solid hsl(var(--accent) / 0.3)" }}
+                    >
+                      <Bot className="h-12 w-12" style={{ color: "hsl(var(--accent))" }} />
+                    </div>
+                  </div>
+                  <p className="font-display text-lg font-semibold text-foreground">Custom Bots</p>
+                  <p className="text-sm text-muted-foreground mt-1">Built in-house for our community</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SUPPORT / STORE BANNER ─────────────── */}
+      <section id="store" className="relative z-10 px-6 py-16 lg:px-16">
+        <div className="mx-auto max-w-6xl">
+          <div
+            className="relative overflow-hidden rounded-3xl px-8 py-14 md:px-16 text-center"
+            style={{
+              background: "linear-gradient(135deg, hsl(258 60% 50% / 0.12) 0%, hsl(178 85% 45% / 0.06) 100%)",
+              border: "1px solid hsl(var(--accent) / 0.25)",
+            }}
+          >
+            {/* Glow effects */}
+            <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full blur-3xl" style={{ background: "hsl(var(--accent) / 0.12)" }} />
+            <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full blur-3xl" style={{ background: "hsl(var(--primary) / 0.1)" }} />
+
+            <div className="relative">
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl" style={{ background: "hsl(var(--accent) / 0.15)", border: "1px solid hsl(var(--accent) / 0.3)" }}>
+                <Heart className="h-7 w-7" style={{ color: "hsl(var(--accent))" }} />
+              </div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-accent">Support Us</p>
+              <h2 className="font-display text-3xl font-bold md:text-4xl text-foreground mb-4">
+                Help Keep NightfallNetwork Running
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed mb-8">
+                NightfallNetwork is a passion project — we don't make any money from it. Servers, domains, and development all cost money. By visiting our store, you help cover those costs and keep the community alive. Every purchase directly supports the server.
+              </p>
+              <a
+                href="#"
+                className="inline-flex items-center gap-3 rounded-xl px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 animate-pulse-glow"
+                style={{
+                  background: "linear-gradient(135deg, hsl(258 60% 55%), hsl(258 50% 40%))",
+                  color: "hsl(var(--foreground))",
+                  boxShadow: "0 0 30px hsl(258 60% 50% / 0.35)",
+                }}
+              >
+                <ShoppingBag className="h-5 w-5" />
+                Visit Store
+                <ExternalLink className="h-4 w-4 opacity-60" />
+              </a>
+              <p className="mt-4 text-xs text-muted-foreground">Store link coming soon — stay tuned!</p>
             </div>
           </div>
         </div>
